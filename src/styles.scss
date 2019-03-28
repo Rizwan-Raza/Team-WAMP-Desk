@@ -1,7 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$mat-wamp : (500: #3d85c6,
+contrast: (500: $light-primary-text));
+$tw-app-primary: mat-palette($mat-wamp);
+$tw-app-accent: mat-palette($mat-grey, 100, 50, 400);
+
+// The warn palette is optional (defaults to red).
+$tw-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$tw-app-theme: mat-light-theme($tw-app-primary, $tw-app-accent, $tw-app-warn);
+
+@include angular-material-theme($tw-app-theme);
+
+$dark-theme: mat-dark-theme($tw-app-primary, $tw-app-accent, $tw-app-warn);
+
+.wamp-dark-theme {
+  @include angular-material-theme($dark-theme);
+}
+
+.bg-primary {
+  background-color: mat-color(map-get($tw-app-theme, primary));
+  color: $light-primary-text
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
 
   height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
