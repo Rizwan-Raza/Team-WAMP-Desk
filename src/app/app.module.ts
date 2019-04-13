@@ -14,8 +14,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 // NG Translate
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -31,6 +34,7 @@ import { WebviewDirective } from './directives/webview.directive';
 import { ElectronService } from './providers/electron.service';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RequestNewComponent } from './components/request-new/request-new.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     NavbarComponent,
     ForgotPasswordComponent,
-    RequestNewComponent
+    RequestNewComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSidenavModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatButtonToggleModule,
     HttpClientModule,
     AppRoutingModule,
     TranslateModule.forRoot({
@@ -67,6 +73,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
+    }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
     }),
     BrowserAnimationsModule,
     LayoutModule,

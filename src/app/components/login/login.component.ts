@@ -44,7 +44,11 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("isLogin", "1");
       this._router.navigate(['/']);
     }, error => {
-      this.snackbar.open(error.message, 'CLOSE', { duration: 5000 });
+      let sbRef = this.snackbar.open(error.message, 'CLOSE', { duration: 5000 });
+      sbRef.onAction().subscribe(() => {
+        sbRef.dismiss();
+      });
+
       this.processing = false;
     });
   }

@@ -1,3 +1,35 @@
 .container {
   padding: 1rem;
 }
+
+.holder {
+  height: 360px;
+  width: 360px;
+  display: flex;
+  margin: auto
+}
+
+.holder.green {
+  background-color: #4caf50;
+  border-radius: 50%;
+  overflow: hidden
+}
+
+.holder mat-spinner {
+  margin: auto;
+}
+
+mat-icon.size-5x {
+  transform: scale(15);
+  display: flex;
+  margin: auto
+}
+
+h3,
+h4 {
+  text-align: center
+}
+
+h4 {
+  color: #666666;
+}

@@ -27,11 +27,13 @@ export class ForgotPasswordComponent implements OnInit {
     this.processing = true;
     let email = this.resetForm.value.email;
     email = email.search("@wampinfotech.com") == -1 ? email + "@wampinfotech.com" : email;
-    this.authService.resetPassword(email + "@wampinfotech.com").then(data => {
+    this.authService.resetPassword(email).then(data => {
       this.processing = false;
       this.snackbar.open("Reset Mail Sent Successfully", 'CLOSE', { duration: 5000 });
       this.completed.emit(true);
     }, error => {
+      console.log(email);
+
       this.snackbar.open(error.message, 'CLOSE', { duration: 5000 });
       this.processing = false;
     });

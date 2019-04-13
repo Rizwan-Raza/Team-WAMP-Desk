@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ElectronService } from './providers/electron.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
@@ -8,7 +8,7 @@ import { AppConfig } from '../environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   constructor(public electronService: ElectronService,
     private translate: TranslateService) {
 
@@ -22,5 +22,12 @@ export class AppComponent {
     } else {
       console.log('Mode web');
     }
+  }
+
+  ngOnDestroy() {
+    console.log("Hello");
+    alert("Hello");
+    localStorage.setItem("exit", "Hello");
+    sessionStorage.setItem("s_exit", "Hello");
   }
 }

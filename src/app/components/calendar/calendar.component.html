@@ -1,0 +1,23 @@
+<navbar [title]="title">
+  <div class="container">
+    <div *ngIf="!loaded" class="loader">
+      <mat-progress-spinner mode="indeterminate">
+      </mat-progress-spinner>
+    </div>
+    <div *ngIf="loaded">
+      <mat-button-toggle-group name="navigation" aria-label="Calendar Navigation" color="accent">
+        <mat-button-toggle (click)="decrement()" [disabled]="prevBtnDisabled" color="accent">Previous
+        </mat-button-toggle>
+        <mat-button-toggle (click)="today()" color="accent">Today</mat-button-toggle>
+        <mat-button-toggle (click)="increment()" [disabled]="nextBtnDisabled" color="accent">Next</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <h2 class="title">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h2>
+      <br clear="all" />
+      <br />
+      <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" [activeDayIsOpen]="false"
+        (beforeViewRender)="beforeMonthViewRender($event)">
+      </mwl-calendar-month-view>
+    </div>
+  </div>
+</navbar>

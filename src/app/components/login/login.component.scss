@@ -23,6 +23,13 @@
     margin: auto auto;
     padding: 2rem;
 
+    img.wamp {
+      height: 160px;
+      width: 160px;
+      display: flex;
+      margin: auto
+    }
+
     mat-form-field {
       width: 100%;
     }

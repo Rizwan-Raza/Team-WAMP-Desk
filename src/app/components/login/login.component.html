@@ -5,6 +5,7 @@
     </h1>
   </div>
   <aside *ngIf="!processing && !forgot && !new">
+    <img src="assets/wamp-logo.png" class="wamp" />
 
     <h1>Login</h1>
     <form [formGroup]="loginForm" (submit)="submit()">

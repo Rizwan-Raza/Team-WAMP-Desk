@@ -45,3 +45,38 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.cal-month-view .cal-event {
+  width: 16px;
+  height: 16px;
+}
+
+.cal-month-view .cal-day-cell,
+mwl-calendar-month-cell {
+  min-height: 88px !important;
+}
+
+.cal-month-view .cal-cell-top {
+  min-height: 60px !important;
+}
+
+.cal-month-view .cal-day-cell.cal-today {
+  background-color: #D1E8FF;
+}
+
+.cal-has-events {
+  background-color: #c8e6c9;
+}
+
+.cal-day-cell:not(.cal-has-events) {
+  background-color: #FAE3E3;
+}
+
+
+.cal-day-cell.cal-future {
+  background-color: #eeeeee !important;
+}
+
+.cal-day-cell.monday {
+  background-color: #ffbbbb !important;
+}
