@@ -2,7 +2,7 @@ export const AppConfig = {
   production: true,
   environment: 'PROD',
   firebase: {
-    apiKey: "AIzaSyB3JJA-VST4v_FD6-IWmcJITTmmcR-UIzE",
+    apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     authDomain: "teamwamp.firebaseapp.com",
     databaseURL: "https://teamwamp.firebaseio.com",
     projectId: "teamwamp",
