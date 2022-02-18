@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="bg-primary">
+    <h1>
+      Welcome again!
+    </h1>
+  </div>
+  <aside *ngIf="!processing && !forgot && !new">
+    <img src="assets/wamp-logo.png" class="wamp" />
+
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (submit)="submit()">
+      <mat-form-field>
+        <input matInput type="text" placeholder="E-mail address" required formControlName="email">
+        <span matSuffix>@wampinfotech.com</span>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" required formControlName="password">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Login</button>
+    </form>
+  </aside>
+  <aside *ngIf="processing">
+    <mat-progress-spinner mode="indeterminate">
+    </mat-progress-spinner>
+  </aside>
+  <aside *ngIf="!processing && !new && forgot" class="forgot">
+    <wi-forgot-password (onComplete)="forgotComplete()"></wi-forgot-password>
+  </aside>
+  <aside *ngIf="!processing && !forgot && new" class="forgot">
+    <wi-request-new (onComplete)="newComplete()"></wi-request-new>
+  </aside>
+</div>
+<div id="float_button">
+  <button mat-fab matTooltip="More Options" matTooltipPosition="left" (click)="toggleSettings(panel)" color="primary">
+    <mat-icon aria-label="More Options">menu</mat-icon>
+  </button>
+  <ul #panel>
+    <li>
+
+      <button mat-mini-fab matTooltip="{{ forgot ? 'Login' : 'Forgot Password?'}}" matTooltipPosition="left"
+        (click)="forgotToggle()">
+        <mat-icon aria-label="Login and Forgot Password option">{{ forgot ? 'lock' : 'vpn_key'}}</mat-icon>
+      </button>
+
+    </li>
+    <li>
+      <button mat-mini-fab matTooltip="{{ new ? 'Login' : 'New User?'}}" matTooltipPosition="left"
+        (click)="newToggle()">
+        <mat-icon aria-label="Login and New User? option">{{ new ? 'lock' : 'person_add'}}</mat-icon>
+      </button>
+    </li>
+  </ul>
+</div>

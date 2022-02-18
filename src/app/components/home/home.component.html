@@ -1,0 +1,14 @@
+<navbar [title]="title">
+  <div class="container">
+    <br />
+    <div #status *ngIf="status" class="holder green">
+      <mat-icon color="accent" class="size-5x">check</mat-icon>
+    </div>
+    <div class="holder" *ngIf="!status">
+      <mat-spinner></mat-spinner>
+    </div>
+    <br />
+    <h3>Welcome <span>{{greet}}!</span></h3>
+    <h4><span #email></span></h4>
+  </div>
+</navbar>
